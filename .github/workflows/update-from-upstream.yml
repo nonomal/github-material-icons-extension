@@ -7,13 +7,13 @@ jobs:
   get-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16.13.0'
 
       - name: Fetch release version
         id: upstream
@@ -24,6 +24,8 @@ jobs:
 
       - name: Attempt update
         if: steps.upstream.outputs.release_tag != steps.upstream.outputs.current_tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm ci && npm run update
 
       - name: Get package version
@@ -60,8 +62,18 @@ jobs:
           client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
           refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
 
+      - name: Upload to edge store
+        if: steps.upstream.outputs.release_tag != steps.upstream.outputs.current_tag
+        continue-on-error: true
+        uses: wdzeng/edge-addon@v1
+        with:
+          product-id: d7692295-d84f-4bf5-9447-3cbb6ae29517
+          zip-path: github-material-icons-edge-extension.zip
+          client-id: ${{ secrets.EDGE_CLIENT_ID }}
+          client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
+          access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
+
       - name: Upload to firefox store
         if: steps.upstream.outputs.release_tag != steps.upstream.outputs.current_tag
         continue-on-error: true
-        run: npx web-ext sign -s ./dist/ --channel=listed --api-key=${{ secrets.FIREFOX_API_KEY }} --api-secret=${{ secrets.FIREFOX_API_SECRET }} --id="{eac6e624-97fa-4f28-9d24-c06c9b8aa713}"
-
+        run: npx web-ext sign -s ./dist/firefox/ --channel=listed --api-key=${{ secrets.FIREFOX_API_JWT_ISSUER }} --api-secret=${{ secrets.FIREFOX_API_JWT_SECRET }}

@@ -1,3 +1,5 @@
+<b> NOTE: This repo is in the process of being archived since a better maintained fork is being setup. See <a href="https://github.com/Claudiohbsantos/github-material-icons-extension/pull/90#issuecomment-2193665707">this discussion</a> for some context until I can properly update this readme to describe the future of this extension. Until then, I really appreciate the patience everyone has shown in the different discussion and the great contributions that have kept this extension alive so long. Thanks!</b>
+
 <h1 align="center">Material Icons for GitHub</h1>
 
 <div align="center">
@@ -14,7 +16,9 @@
 
 ---
 
-<a href="https://github.com/PKief/vscode-material-icon-theme"><img src="https://img.shields.io/badge/last_built_with_vscode_theme-v4.18.1-blue" /></a>
+<a href="https://github.com/PKief/vscode-material-icon-theme"><img src="https://img.shields.io/badge/last_built_with_vscode_theme-v5.3.0-blue" /></a>
+
+<img valign="middle" src="https://img.shields.io/chrome-web-store/v/bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc?label=Version%20Available%20in%20Chrome%20Store">
 
 ### About
 
