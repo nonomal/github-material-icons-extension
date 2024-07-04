@@ -1,4 +1,4 @@
-<b> NOTE: This repo is in the process of being archived since a better maintained fork is being setup. See <a href="https://github.com/Claudiohbsantos/github-material-icons-extension/pull/90#issuecomment-2193665707">this discussion</a> for some context until I can properly update this readme to describe the future of this extension. Until then, I really appreciate the patience everyone has shown in the different discussion and the great contributions that have kept this extension alive so long. Thanks!</b>
+<b> NOTE: This repo is in the process of being transferred into this organization so we can better maintain it. See <a href="https://github.com/Claudiohbsantos/github-material-icons-extension/pull/90#issuecomment-2193665707">this discussion</a> for some context until all updates are finished. Thanks for your patience!</b>
 
 <h1 align="center">Material Icons for GitHub</h1>
 
